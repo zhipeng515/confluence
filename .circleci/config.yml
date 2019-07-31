@@ -14,8 +14,6 @@ jobs:
               py-pip \
               curl \
               curl-dev
-            pip install \
-              docker-compose
       - run:
           name: Build Branch Images
           command: |
@@ -40,8 +38,6 @@ jobs:
               py-pip \
               curl \
               curl-dev
-            pip install \
-              docker-compose
       - run:
           name: Build Docker Release Images
           command: |
@@ -55,7 +51,7 @@ jobs:
           name: Push Dockerhub Release Images
           command: |
               docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-              sh buildscripts/releaseSupportedImages.sh
+              sh buildscripts/releaseSupportedImages.sh teamatldocker
 
 workflows:
   version: 2
